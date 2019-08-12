@@ -31,7 +31,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'joshdick/onedark.vim'
 Plugin 'davidhalter/jedi-vim'
-" Plugin 'sheerun/vim-polyglot'
+Plugin 'sheerun/vim-polyglot'
 Plugin 'scrooloose/syntastic'
 Plugin 'tell-k/vim-autopep8'
 Plugin 'skywind3000/asyncrun.vim'
@@ -55,7 +55,6 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-syntax enable
 
 " " Basic Setup
 " Encoding
@@ -82,10 +81,12 @@ let mapleader='\'
 set hidden
 
 " Searching
-set hlsearch
-set incsearch
-set ignorecase
-set smartcase
+set wrapscan   " search wrap around the end of the file
+set ignorecase " ignore case search
+set smartcase  " override 'ignorecase' if the search pattern contains upper case
+set incsearch  " incremental search
+set hlsearch   " highlight searched words
+nohlsearch     " avoid highlighting when reloading vimrc
 
 "" Directories for swp files
 set nobackup
@@ -128,19 +129,6 @@ set foldlevel=99
 " Enable folding with the spacebar
 nnoremap <space> za
 
-" PEP 8 indentation
-"au BufNewFile,BufRead *.py
-    "\ set tabstop=4
-    "\ set softtabstop=4
-    "\ set shiftwidth=4
-    "\ set textwidth=79
-    "\ set expandtab
-    "\ set autoindent
-"    \ set fileformat=unix
-
-" Flag unnecessary whitespace 
-" au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
-
 let python_highlight_all=1
 syntax on
 
@@ -161,9 +149,20 @@ set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
 let g:enable_bold_font = 1
 let g:hybrid_transparent_background = 1
 
-autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+"" NERDTree settings
+"" autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+set rtp+=~/.vim/bundle/nerdtree
+
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
 autocmd BufWinEnter * NERDTreeMirror
-autocmd vimenter * NERDTree
+autocmd VimEnter * wincmd w
+
 nnoremap <silent> <leader><space> :noh<cr>
 
 
@@ -242,20 +241,31 @@ let python_highlight_all = 1
 "" Tabs
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
-nnoremap <silent> <S-t> :tabnew<CR>
+nnoremap <silent> <S-t> :tabnew<CR>
+nnoremap <silent> <S-w> :tabclose<CR>
 
 
 "" YouCompleteMe settings
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
+"au BufNewFile,BufReadPost *.py 0r ~/.vim/skeleton.py
+
+" Change conda env
+autocmd Filetype python nnoremap <buffer> <F4> :CondaChangeEnv<CR>
+
+" Quick run via <F5>
+autocmd Filetype python nnoremap <buffer> <F5> :w<CR>:ter python3 "%"<CR>
 
 "" autopep8 shortcut
 autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
 
-au BufNewFile *.py 0r ~/.vim/skeleton.py
 
+"" enable PDF/Browser support when available
+if $DISPLAY != ""
+    let R_pdfviewer = 'zathura'
+    let vimrplugin_openpdf = 1
+    let vimrplugin_openhtml = 1
+endif
 
-" Quick run via <F5>
-autocmd Filetype python nnoremap <buffer> <F5> :w<CR>:ter python3 "%"<CR>
-autocmd Filetype python nnoremap <buffer> <F4> :CondaChangeEnv<CR>
+syntax enable
