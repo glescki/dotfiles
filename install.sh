@@ -23,6 +23,13 @@
 
 ## VIM
 
+# Copy ./vim/.vimrc to ~/.vimrc
+# First create a backup ~/.vimrc called .vimrc.old
+cp ~/.vimrc ~/.vimrc.old
+
+# Then overwrites ~/.vimrc with local .vimrc file
+cp ./vim/.vimrc ~
+
 # Install Vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
@@ -30,7 +37,7 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
 
 # Install YouCompleteMe
-python3 ~/.vim/bundle/youcompleteme/install.py --clang-completer
+# python3 ~/.vim/bundle/youcompleteme/install.py --clang-completer
 
 # Update all plugins (kinda redundant)
 vim +PluginUpdate +qall
