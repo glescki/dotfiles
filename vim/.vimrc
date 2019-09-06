@@ -37,6 +37,11 @@ Plugin 'tell-k/vim-autopep8'
 Plugin 'skywind3000/asyncrun.vim'
 Plugin 'thinca/vim-quickrun'
 Plugin 'cjrh/vim-conda'
+Plugin 'heavenshell/vim-pydocstring'
+Plugin 'jeetsukumaran/vim-pythonsense'
+Plugin 'tpope/vim-surround'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 Plugin 'biosyntax/biosyntax-vim'
 
@@ -126,9 +131,6 @@ au BufNewFile,BufRead *.fasta,*.fastq,*.clustal,*.bed,*.gtf,*.pdb,*.vcf,*.sam se
 set foldmethod=indent
 set foldlevel=99
 
-" Enable folding with the spacebar
-nnoremap <space> za
-
 let python_highlight_all=1
 syntax on
 
@@ -191,8 +193,6 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd BufWinEnter * NERDTreeMirror
 autocmd VimEnter * wincmd w
 
-nnoremap <silent> <leader><space> :noh<cr>
-
 
 "" Disable the blinking cursor.
 set gcr=a:blinkon0
@@ -225,8 +225,6 @@ let g:NERDTreeWinSize = 35
 let g:NerdTreeMinimalUI = 1
 let g:NERDTreeMirror = 1
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
-nnoremap <silent> <F2> :NERDTreeFind<CR>
-nnoremap <silent> <F3> :NERDTreeToggle<CR>
 
 "" NERD Commenter configuration
 " Add spaces after comment delimiters by default
@@ -262,8 +260,6 @@ let g:syntastic_aggregate_errors = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-" syntastic shortcuts
-nnoremap <silent> <C-d> :lclose<CR>:bdelete<CR>
 
 augroup vimrc-python
   autocmd!
@@ -289,30 +285,48 @@ let g:syntastic_python_checkers=['python', 'flake8']
 " " vim-airline
 let g:airline#extensions#virtualenv#enabled = 1
 
+" pythonsense
+let g:is_pythonsense_suppress_motion_keymaps = 1
+
 " Syntax highlight
 " Default highlight is better than polyglot
 let g:polyglot_disabled = ['python']
 let python_highlight_all = 1
 
+"" Shortcuts
+" Remove highlight from 
+nnoremap <silent> <leader><space> :noh<cr>
 
-"" Tabs
+" Nerdtree
+nnoremap <silent> <F2> :NERDTreeFind<CR>
+nnoremap <silent> <F3> :NERDTreeToggle<CR>
+
+" syntastic
+nnoremap <silent> <leader><D> :lclose<CR>
+
+" Tabs
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
 nnoremap <silent> <S-t> :tabnew<CR>
 nnoremap <silent> <S-w> :tabclose<CR>
 
+" Enable folding with the spacebar
+nnoremap <space> za
 
-"" YouCompleteMe settings
+" YouCompleteMe settings
 let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
-"au BufNewFile,BufReadPost *.py 0r ~/.vim/skeleton.py
+let g:ycm_key_list_select_completion = ['<Down>'] " Remove <Tab> so Ultisnips could work properly
+let g:ycm_key_list_stop_completion = ['<C-y>']
+" map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " Change conda env
 autocmd Filetype python nnoremap <buffer> <F4> :CondaChangeEnv<CR>
 
 " Quick run via <F5>
 autocmd Filetype python nnoremap <buffer> <F5> :w<CR>:ter python3 "%"<CR>
+
+" Quick run via <S-F5> with fixed arguments 
+autocmd Filetype python nnoremap <silent> <S-F5> :w<CR>:ter python3 "%" data/references/hg19.fasta data/bedfiles/AmpliSeqExome.20131001.designed.bed<CR>
 
 "" autopep8 shortcut
 autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
