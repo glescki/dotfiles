@@ -259,7 +259,8 @@ let g:syntastic_auto_loc_list=1
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-
+" let g:syntastic_python_checkers = ['python3', 'flake8']
+let g:syntastic_mode_map = { 'passive_filetypes': ['python'] }
 
 augroup vimrc-python
   autocmd!
@@ -278,9 +279,6 @@ let g:jedi#rename_command = "<leader>r"
 let g:jedi#show_call_signatures = "0"
 let g:jedi#completions_command = "<C-Space>"
 let g:jedi#smart_auto_mappings = 0
-
-" syntastic
-let g:syntastic_python_checkers=['python', 'flake8']
 
 " " vim-airline
 let g:airline#extensions#virtualenv#enabled = 1
