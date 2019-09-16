@@ -107,12 +107,6 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-alias ipp-bioinfo2='ssh -CY gabriel@10.2.0.86'
-
-PATH="/home/gabriel/.local/sratoolkit.2.9.6-1-ubuntu64/bin:$PATH"
-
-# nitrogen --restore &
-
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1"  ] && \
