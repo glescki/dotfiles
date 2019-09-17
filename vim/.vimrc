@@ -15,7 +15,6 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive' " Git wrapper so awesome, it should be illegal
 Plugin 'airblade/vim-gitgutter' " A Vim plugin which shows a git diff in the 'gutter'
 Plugin 'scrooloose/nerdcommenter' " Vim plugin for intensely orgasmic commenting
-Plugin 'jiangmiao/auto-pairs' " Insert or delete brackets, parens, quotes in pair
 Plugin 'vim-airline/vim-airline' " lean & mean status/tabline for vim that's light as air
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tmhedberg/SimpylFold'  
@@ -27,23 +26,24 @@ Plugin 'mhinz/vim-signify'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plugin 'junegunn/fzf.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'joshdick/onedark.vim'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'sheerun/vim-polyglot'
-Plugin 'scrooloose/syntastic'
-Plugin 'tell-k/vim-autopep8'
+Plugin 'scrooloose/nerdtree' " Very useful directory tree explorer inside vim
+Plugin 'jistr/vim-nerdtree-tabs' 
+Plugin 'davidhalter/jedi-vim' " Big python autocomplete library
+Plugin 'sheerun/vim-polyglot' 
+Plugin 'scrooloose/syntastic' " Checks for errors and warnings inside the code
+Plugin 'tell-k/vim-autopep8' " Auto ident and pep8 for python files
 Plugin 'skywind3000/asyncrun.vim'
 Plugin 'thinca/vim-quickrun'
-Plugin 'cjrh/vim-conda'
+Plugin 'cjrh/vim-conda' " Auto changes the conda env inside vim
 Plugin 'heavenshell/vim-pydocstring'
-Plugin 'jeetsukumaran/vim-pythonsense'
-Plugin 'tpope/vim-surround'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
+Plugin 'jeetsukumaran/vim-pythonsense' 
+Plugin 'tpope/vim-surround' " Plugin that facilitate the use of brackets in code
+Plugin 'SirVer/ultisnips'   " Enable the use for prebuilt snippets in vim
+Plugin 'honza/vim-snippets' " Package with some useful snippets
+Plugin 'iamcco/markdown-preview.nvim'
 
-Plugin 'biosyntax/biosyntax-vim'
+Plugin 'joshdick/onedark.vim' " Colorscheme
+Plugin 'biosyntax/biosyntax-vim' " Make it easier to read biological file formats
 
 
 " All of your Plugins must be added before the following line
