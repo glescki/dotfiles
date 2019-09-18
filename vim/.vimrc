@@ -41,6 +41,8 @@ Plugin 'tpope/vim-surround' " Plugin that facilitate the use of brackets in code
 Plugin 'SirVer/ultisnips'   " Enable the use for prebuilt snippets in vim
 Plugin 'honza/vim-snippets' " Package with some useful snippets
 Plugin 'iamcco/markdown-preview.nvim'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'jiangmiao/auto-pairs'
 
 Plugin 'joshdick/onedark.vim' " Colorscheme
 Plugin 'biosyntax/biosyntax-vim' " Make it easier to read biological file formats
