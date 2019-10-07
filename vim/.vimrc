@@ -43,6 +43,8 @@ Plugin 'honza/vim-snippets' " Package with some useful snippets
 Plugin 'iamcco/markdown-preview.nvim'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'godlygeek/tabular'
+Plugin 'suan/vim-instant-markdown', {'rtp': 'after'}
 
 Plugin 'joshdick/onedark.vim' " Colorscheme
 Plugin 'biosyntax/biosyntax-vim' " Make it easier to read biological file formats
@@ -125,9 +127,9 @@ set background=dark
 set t_Co=256
 " set expandtab shiftwidth=4 smarttab softtabstop=4 tabstop=4 smartindent
 
-
 au BufNewFile,BufRead *.fasta,*.fastq,*.clustal,*.bed,*.gtf,*.pdb,*.vcf,*.sam set colorcolumn=
 
+au BufNewFile,BufRead *.md set conceallevel=2
 
 " Enable folding
 set foldmethod=indent
@@ -135,6 +137,9 @@ set foldlevel=99
 
 let python_highlight_all=1
 syntax on
+
+" Instant Markdown
+let g:instant_markdown_autostart = 0
 
 " vim-airline
 let g:airline_theme = 'onedark'
@@ -324,9 +329,6 @@ autocmd Filetype python nnoremap <buffer> <F4> :CondaChangeEnv<CR>
 
 " Quick run via <F5>
 autocmd Filetype python nnoremap <buffer> <F5> :w<CR>:ter python3 "%"<CR>
-
-" Quick run via <S-F5> with fixed arguments 
-autocmd Filetype python nnoremap <silent> <S-F5> :w<CR>:ter python3 "%" data/references/hg19.fasta data/bedfiles/AmpliSeqExome.20131001.designed.bed<CR>
 
 "" autopep8 shortcut
 autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
