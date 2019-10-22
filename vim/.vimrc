@@ -298,6 +298,11 @@ let g:is_pythonsense_suppress_motion_keymaps = 1
 let g:polyglot_disabled = ['python']
 let python_highlight_all = 1
 
+" Tmux navigator
+" Write all buffers before navigating from Vim to tmux pane
+let g:tmux_navigator_save_on_switch = 2
+
+
 "" Shortcuts
 " Remove highlight from 
 nnoremap <silent> <leader><space> :noh<cr>
