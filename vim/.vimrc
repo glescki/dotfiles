@@ -32,8 +32,6 @@ Plugin 'davidhalter/jedi-vim' " Big python autocomplete library
 Plugin 'sheerun/vim-polyglot' 
 Plugin 'scrooloose/syntastic' " Checks for errors and warnings inside the code
 Plugin 'tell-k/vim-autopep8' " Auto ident and pep8 for python files
-Plugin 'skywind3000/asyncrun.vim'
-Plugin 'thinca/vim-quickrun'
 Plugin 'cjrh/vim-conda' " Auto changes the conda env inside vim
 Plugin 'heavenshell/vim-pydocstring'
 Plugin 'jeetsukumaran/vim-pythonsense' 
@@ -320,8 +318,8 @@ nnoremap <S-Tab> gT
 nnoremap <silent> <S-t> :tabnew<CR>
 nnoremap <silent> <S-w> :tabclose<CR>
 
-" Enable folding with the spacebar
-nnoremap <space> za
+" Pydocstring
+nmap <silent> <C-_> <Plug>(pydocstring)
 
 " YouCompleteMe settings
 let g:ycm_autoclose_preview_window_after_completion=1
