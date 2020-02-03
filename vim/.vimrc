@@ -43,6 +43,7 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'godlygeek/tabular'
 Plugin 'suan/vim-instant-markdown', {'rtp': 'after'}
+Plugin 'Yggdroot/indentLine'
 
 Plugin 'joshdick/onedark.vim' " Colorscheme
 Plugin 'biosyntax/biosyntax-vim' " Make it easier to read biological file formats
@@ -117,6 +118,8 @@ if (has("termguicolors"))
 endif
 
 set ruler
+set listchars=tab:\|\
+set list
 set mousemodel=popup
 set guioptions=egmrti
 set gfn=Monospace\ 10
@@ -184,6 +187,8 @@ set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
 let g:enable_bold_font = 1
 let g:hybrid_transparent_background = 1
 
+"" indentLine
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
 "" NERDTree settings
 "" autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif

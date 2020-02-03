@@ -9,7 +9,7 @@ git config --global user.name "Gabriel Olescki"
 ## ZSH
 
 # Install zsh
-apt-get install zsh
+sudo pacman -S zsh
 
 # Make it the default shell
 
@@ -25,7 +25,10 @@ git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerl
 
 # Copy ./vim/.vimrc to ~/.vimrc
 # First create a backup ~/.vimrc called .vimrc.old
-cp ~/.vimrc ~/.vimrc.old
+if [[ -f ~/.vimrc ]];
+then
+    cp ~/.vimrc ~/.vimrc.old
+fi
 
 # Then overwrites ~/.vimrc with local .vimrc file
 cp ./vim/.vimrc ~
@@ -53,7 +56,10 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Copy ./tmux/.tmux.conf to ~/.tmux.conf
 # First create a backup ~/.tmuxrc called .tmux.conf.old
-cp ~/.tmux ~/.tmux.conf.old
+if [[ -f ~/.tmux.conf ]];
+then
+    cp ~/.tmux.conf ~/.tmux.conf.old
+fi
 
 # Then overwrites ~/.tmuxrc with local .tmux.conf file
 cp ./tmux/.tmux.conf ~
