@@ -102,7 +102,12 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
+[[ -f /usr/share/fzf/key-bindings.zsh ]] && source /usr/share/fzf/key-bindings.zsh
+[[ -f /usr/share/fzf/completion.zsh ]] && source /usr/share/fzf/completion.zsh
+
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(anaconda time)
+
+export PATH=/home/gabriel/.local/bin:$PATH
 
 # Aliases
 alias ll='ls -alF'
@@ -129,3 +134,5 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+neofetch
