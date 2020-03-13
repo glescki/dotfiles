@@ -2,9 +2,7 @@
 
 ## GIT
 # Make global git settings
-git config --global core.editor "vim"
-git config --global user.email "glecki@gmail.com"
-git config --global user.name "Gabriel Olescki"
+cp git/* ~
 
 ## ZSH
 
