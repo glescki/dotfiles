@@ -20,7 +20,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tmhedberg/SimpylFold'  
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'nvie/vim-flake8'
-Plugin 'valloric/youcompleteme'
+" Plugin 'valloric/youcompleteme'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mhinz/vim-signify'
 Plugin 'christoomey/vim-tmux-navigator'
@@ -28,7 +28,7 @@ Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plugin 'junegunn/fzf.vim'
 Plugin 'scrooloose/nerdtree' " Very useful directory tree explorer inside vim
 Plugin 'jistr/vim-nerdtree-tabs' 
-Plugin 'davidhalter/jedi-vim' " Big python autocomplete library
+" Plugin 'davidhalter/jedi-vim' " Big python autocomplete library
 Plugin 'sheerun/vim-polyglot' 
 Plugin 'scrooloose/syntastic' " Checks for errors and warnings inside the code
 Plugin 'tell-k/vim-autopep8' " Auto ident and pep8 for python files
@@ -121,6 +121,8 @@ set ruler
 set listchars=tab:\|\
 set list
 set mousemodel=popup
+set mouse=a
+set ttymouse=xterm
 set guioptions=egmrti
 set gfn=Monospace\ 10
 colorscheme onedark
