@@ -36,8 +36,8 @@ Plugin 'cjrh/vim-conda' " Auto changes the conda env inside vim
 Plugin 'heavenshell/vim-pydocstring'
 Plugin 'jeetsukumaran/vim-pythonsense' 
 Plugin 'tpope/vim-surround' " Plugin that facilitate the use of brackets in code
-Plugin 'SirVer/ultisnips'   " Enable the use for prebuilt snippets in vim
-Plugin 'honza/vim-snippets' " Package with some useful snippets
+" Plugin 'SirVer/ultisnips'   " Enable the use for prebuilt snippets in vim
+" Plugin 'honza/vim-snippets' " Package with some useful snippets
 Plugin 'iamcco/markdown-preview.nvim'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'jiangmiao/auto-pairs'
@@ -45,7 +45,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'suan/vim-instant-markdown', {'rtp': 'after'}
 Plugin 'Yggdroot/indentLine'
 
-Plugin 'joshdick/onedark.vim' " Colorscheme
+Plugin 'arcticicestudio/nord-vim' " Colorscheme
 Plugin 'biosyntax/biosyntax-vim' " Make it easier to read biological file formats
 
 
@@ -125,7 +125,8 @@ set mouse=a
 set ttymouse=xterm
 set guioptions=egmrti
 set gfn=Monospace\ 10
-colorscheme onedark
+colorscheme nord
+" colorscheme onedark
 set background=dark
 set t_Co=256
 " set expandtab shiftwidth=4 smarttab softtabstop=4 tabstop=4 smartindent
@@ -145,7 +146,7 @@ syntax on
 let g:instant_markdown_autostart = 0
 
 " vim-airline
-let g:airline_theme = 'onedark'
+let g:airline_theme = 'nord'
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -338,6 +339,9 @@ autocmd Filetype python nnoremap <buffer> <F4> :CondaChangeEnv<CR>
 
 " Quick run via <F5>
 autocmd Filetype python nnoremap <buffer> <F5> :w<CR>:ter python3 "%"<CR>
+
+" Quick run via <F5>
+autocmd Filetype python nnoremap <buffer> <S-F5> :w<CR>:ter python3 "main.py"<CR>
 
 "" autopep8 shortcut
 autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
