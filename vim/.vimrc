@@ -20,7 +20,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tmhedberg/SimpylFold'  
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'nvie/vim-flake8'
-" Plugin 'valloric/youcompleteme'
+Plugin 'valloric/youcompleteme'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mhinz/vim-signify'
 Plugin 'christoomey/vim-tmux-navigator'
@@ -28,7 +28,7 @@ Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plugin 'junegunn/fzf.vim'
 Plugin 'scrooloose/nerdtree' " Very useful directory tree explorer inside vim
 Plugin 'jistr/vim-nerdtree-tabs' 
-" Plugin 'davidhalter/jedi-vim' " Big python autocomplete library
+Plugin 'davidhalter/jedi-vim' " Big python autocomplete library
 Plugin 'sheerun/vim-polyglot' 
 Plugin 'scrooloose/syntastic' " Checks for errors and warnings inside the code
 Plugin 'tell-k/vim-autopep8' " Auto ident and pep8 for python files
@@ -36,14 +36,15 @@ Plugin 'cjrh/vim-conda' " Auto changes the conda env inside vim
 Plugin 'heavenshell/vim-pydocstring'
 Plugin 'jeetsukumaran/vim-pythonsense' 
 Plugin 'tpope/vim-surround' " Plugin that facilitate the use of brackets in code
-" Plugin 'SirVer/ultisnips'   " Enable the use for prebuilt snippets in vim
-" Plugin 'honza/vim-snippets' " Package with some useful snippets
+Plugin 'SirVer/ultisnips'   " Enable the use for prebuilt snippets in vim
+Plugin 'honza/vim-snippets' " Package with some useful snippets
 Plugin 'iamcco/markdown-preview.nvim'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'godlygeek/tabular'
 Plugin 'suan/vim-instant-markdown', {'rtp': 'after'}
 Plugin 'Yggdroot/indentLine'
+Plugin 'lervag/vimtex'
 
 Plugin 'arcticicestudio/nord-vim' " Colorscheme
 Plugin 'biosyntax/biosyntax-vim' " Make it easier to read biological file formats
@@ -270,10 +271,13 @@ let g:syntastic_style_warning_symbol = '⚠'
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_aggregate_errors = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 " let g:syntastic_python_checkers = ['python3', 'flake8']
-let g:syntastic_mode_map = { 'passive_filetypes': ['python'] }
+" let g:syntastic_mode_map = { 'passive_filetypes': ['python'] }
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': []  }
+nnoremap <leader>e :SyntasticCheck<CR> :SyntasticToggleMode
+
 
 augroup vimrc-python
   autocmd!
