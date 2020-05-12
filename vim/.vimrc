@@ -45,6 +45,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'suan/vim-instant-markdown', {'rtp': 'after'}
 Plugin 'Yggdroot/indentLine'
 Plugin 'lervag/vimtex'
+Plugin 'mateusbraga/vim-spell-pt-br'
 
 Plugin 'arcticicestudio/nord-vim' " Colorscheme
 Plugin 'biosyntax/biosyntax-vim' " Make it easier to read biological file formats
@@ -134,6 +135,7 @@ set t_Co=256
 
 au BufNewFile,BufRead *.fasta,*.fastq,*.clustal,*.bed,*.gtf,*.pdb,*.vcf,*.sam set colorcolumn=
 
+let g:tex_conceal = ""
 au BufNewFile,BufRead *.md set conceallevel=2
 
 " Enable folding
@@ -344,9 +346,6 @@ autocmd Filetype python nnoremap <buffer> <F4> :CondaChangeEnv<CR>
 " Quick run via <F5>
 autocmd Filetype python nnoremap <buffer> <F5> :w<CR>:ter python3 "%"<CR>
 
-" Quick run via <F5>
-autocmd Filetype python nnoremap <buffer> <S-F5> :w<CR>:ter python3 "main.py"<CR>
-
 "" autopep8 shortcut
 autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
 
@@ -357,5 +356,26 @@ if $DISPLAY != ""
     let vimrplugin_openpdf = 1
     let vimrplugin_openhtml = 1
 endif
+
+augroup debianlatexfix 
+  " Remove all vimrc autocommands within scope
+  autocmd! 
+  autocmd BufNewFile,BufRead *.tex set syntax=tex
+  autocmd BufNewFile,BufRead *.cls set syntax=tex
+augroup END
+
+autocmd BufRead,BufNewFile *.md setlocal spell spelllang=pt_br,en_us textwidth=80
+autocmd BufRead,BufNewFile *.tex setlocal spell spelllang=pt_br,en_us textwidth=80
+
+set complete+=kspell
+
+let g:tex_flavor = "latex"
+let g:vimtex_quickfix_mode=0
+
+fun! FigSnip(name)
+        let l:l = line(".") - 1
+        call append(l:l, "\\end{figure}")
+        call append(l:l, "\\begin{figure}")
+endfun
 
 syntax enable
