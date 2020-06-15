@@ -115,9 +115,9 @@ set showmatch
 set splitright
 set guicursor=
 
-if (has("termguicolors"))
-    set termguicolors
-endif
+" if (has("termguicolors"))
+"     set termguicolors
+" endif
 
 set ruler
 set listchars=tab:\|\

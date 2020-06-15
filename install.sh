@@ -61,3 +61,6 @@ fi
 
 # Then overwrites ~/.tmuxrc with local .tmux.conf file
 cp ./tmux/.tmux.conf ~
+
+## Alacritty
+cp ./alacritty/alacritty.yml ~/.config/alacritty/
