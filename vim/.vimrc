@@ -131,9 +131,13 @@ colorscheme nord
 " colorscheme onedark
 set background=dark
 set t_Co=256
+set clipboard=unnamedplus
 " set expandtab shiftwidth=4 smarttab softtabstop=4 tabstop=4 smartindent
 
 au BufNewFile,BufRead *.fasta,*.fastq,*.clustal,*.bed,*.gtf,*.pdb,*.vcf,*.sam set colorcolumn=
+
+au BufNewFile,BufRead Snakefile set syntax=snakemake
+au BufNewFile,BufRead *.smk set syntax=snakemake
 
 let g:tex_conceal = ""
 au BufNewFile,BufRead *.md set conceallevel=2
@@ -357,7 +361,7 @@ if $DISPLAY != ""
     let vimrplugin_openhtml = 1
 endif
 
-augroup debianlatexfix 
+augroup latexfix 
   " Remove all vimrc autocommands within scope
   autocmd! 
   autocmd BufNewFile,BufRead *.tex set syntax=tex
