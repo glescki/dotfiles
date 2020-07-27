@@ -4,20 +4,21 @@
 # Make global git settings
 cp git/* ~
 
-## ZSH
+## FISH
 
-# Install zsh
-sudo pacman -S zsh
+# Install fish
+sudo pacman -S fish
 
 # Make it the default shell
+chsh -s /usr/bin/fish
 
-chsh -s /usr/bin/zsh
+# Install oh-my-fish
+curl -L https://get.oh-my.fish | fish
 
-# Install oh-my-zsh
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+# Fish fzf functions
+omf install https://github.com/jethrokuan/fzf
 
-# Install powerlevel10k
-git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+cp ./fish/config.fish ~/.config/fish/
 
 ## VIM
 
@@ -64,3 +65,8 @@ cp ./tmux/.tmux.conf ~
 
 ## Alacritty
 cp ./alacritty/alacritty.yml ~/.config/alacritty/
+
+## Starship
+curl -fsSL https://starship.rs/install.sh | bash
+
+cp ./starship/starship.toml ~/.config/
