@@ -1,9 +1,6 @@
 # Don't print a new line at the start of the prompt
 add_newline = false
 
-[line_break]
-disabled = true
-
 # Replace the "❯" symbol in the prompt with "➜"
 [character]
 symbol = "➜"
@@ -11,7 +8,14 @@ error_symbol = "✗"
 use_symbol_for_status = true
 
 [conda]
-style = "dimmed green"
+disabled = true
+
+[cmd_duration]
+disabled = true
+
+[directory]
+truncation_length = 5
+prefix = ""
 
 # Disable the package module, hiding it from the prompt completely
 [package]
@@ -21,8 +25,55 @@ disabled = true
 ssh_only = false
 prefix = "⟪ "
 suffix = " ⟫"
+style = "bold green"
 
 [username]
 show_always = true
 style_user = "bold blue"
 
+# [memory_usage]
+# disabled = false
+# show_percentage = true
+# threshold = -1
+# symbol = " "
+
+[battery]
+full_symbol = ""
+charging_symbol = ""
+discharging_symbol = ""
+
+[docker]
+symbol = " "
+
+[elixir]
+symbol = " "
+
+[git_branch]
+symbol = " "
+
+[haskell]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+
+[java]
+symbol = " "
+
+[nodejs]
+symbol = " "
+
+[php]
+symbol = " "
+
+[python]
+symbol = " "
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = " "
+
+[line_break]
+disabled = true
