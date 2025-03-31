@@ -20,7 +20,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tmhedberg/SimpylFold'  
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'nvie/vim-flake8'
-Plugin 'valloric/youcompleteme'
+"Plugin 'valloric/youcompleteme'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mhinz/vim-signify'
 Plugin 'christoomey/vim-tmux-navigator'
@@ -32,7 +32,7 @@ Plugin 'davidhalter/jedi-vim' " Big python autocomplete library
 Plugin 'sheerun/vim-polyglot' 
 Plugin 'scrooloose/syntastic' " Checks for errors and warnings inside the code
 Plugin 'tell-k/vim-autopep8' " Auto ident and pep8 for python files
-Plugin 'cjrh/vim-conda' " Auto changes the conda env inside vim
+"Plugin 'cjrh/vim-conda' " Auto changes the conda env inside vim
 Plugin 'heavenshell/vim-pydocstring'
 Plugin 'jeetsukumaran/vim-pythonsense' 
 Plugin 'tpope/vim-surround' " Plugin that facilitate the use of brackets in code
@@ -84,8 +84,9 @@ set softtabstop=0
 set shiftwidth=4
 set expandtab
 
-" Map leader to ,
-let mapleader='\'
+" Map leader to space
+nnoremap <SPACE> <Nop>
+let mapleader=' '
 
 " Enable hidden buffers
 set hidden
